@@ -16,7 +16,10 @@ public class SubjectEntity {
 
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
+    @ManyToMany(mappedBy = "subjects")
     private List<StudentEntity> students;
 }
