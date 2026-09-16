@@ -6,6 +6,8 @@ import com.RestAPI.StudentManagementSystem.Repository.StudentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -33,5 +35,15 @@ public class StudentService {
        studentRepository.save(student);
 
        return modelMapper.map(student,StudentDTO.class);
+    }
+
+    public List<StudentDTO> getAllStudentService() {
+
+        List<StudentEntity>Students=studentRepository.findAll();
+
+        return Students.
+                stream().
+                map(student->modelMapper.map(student,StudentDTO.class)).
+                toList();
     }
 }
