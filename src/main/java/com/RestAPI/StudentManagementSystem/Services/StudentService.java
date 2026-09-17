@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class StudentService {
@@ -45,5 +46,46 @@ public class StudentService {
                 stream().
                 map(student->modelMapper.map(student,StudentDTO.class)).
                 toList();
+    }
+
+
+    //Method to Get Student By ID
+
+    public StudentDTO getStudentByIdService(Long id) {
+
+        StudentEntity student=studentRepository.findById(id).orElseThrow();
+
+        return modelMapper.map(student,StudentDTO.class);
+
+
+    }
+
+
+    //Method to Update Student
+    public StudentDTO updateStudentService(Long id, StudentDTO studentDTO) {
+
+        StudentEntity student =modelMapper.map(studentDTO,StudentEntity.class);
+
+        student.setId(id);
+
+        studentRepository.save(student);
+
+
+        return modelMapper.map(student,StudentDTO.class);
+
+
+    }
+
+
+    //Method to Delete Student By ID
+
+    public Boolean deleteStudentService(Long id) {
+        if(!studentRepository.existsById(id)) {
+            throw new NoSuchElementException("Entity Not Found");
+        }
+
+        studentRepository.deleteById(id);
+
+        return true;
     }
 }
