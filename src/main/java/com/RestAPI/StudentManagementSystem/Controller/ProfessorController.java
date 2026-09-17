@@ -2,9 +2,7 @@ package com.RestAPI.StudentManagementSystem.Controller;
 
 
 import com.RestAPI.StudentManagementSystem.DTO.ProfessorDTO;
-import com.RestAPI.StudentManagementSystem.DTO.StudentDTO;
 import com.RestAPI.StudentManagementSystem.Services.ProfessorService;
-import com.RestAPI.StudentManagementSystem.Services.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

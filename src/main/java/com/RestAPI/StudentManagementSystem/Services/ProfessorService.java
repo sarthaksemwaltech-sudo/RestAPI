@@ -1,9 +1,7 @@
 package com.RestAPI.StudentManagementSystem.Services;
 
 import com.RestAPI.StudentManagementSystem.DTO.ProfessorDTO;
-import com.RestAPI.StudentManagementSystem.DTO.StudentDTO;
 import com.RestAPI.StudentManagementSystem.Entity.ProfessorEntity;
-import com.RestAPI.StudentManagementSystem.Entity.StudentEntity;
 import com.RestAPI.StudentManagementSystem.Repository.ProfessorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
